@@ -7,7 +7,7 @@ import com.base.TestBase;
 import PageObjects.SupportPage;
 import io.appium.java_client.ios.IOSDriver;
 
-public class Telus extends TestBase implements ITestBase {
+public class THtest extends TestBase implements ITestBase {
 
   // execute : mvn clean compile test -Dsurefire.suiteXmlFiles=src/test/resources/TestNG.xml
 

@@ -6,7 +6,7 @@
 	<test name="Test1" enabled="true">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestCases.Telus" />
+			<class name="TestCases.THtest" />
 		</classes>
 	</test>
 
@@ -15,7 +15,7 @@
 		<parameter name="udid" value="13201FDD4001SR" />
 		<classes>
 
-			<class name="TestCases.Telus" />
+			<class name="TestCases.THtest" />
 
 		</classes>
 	</test>
@@ -24,7 +24,7 @@
 		<parameter name="browser" value="iOS" />
 		<parameter name="udid" value="Auto" />
 		<classes>
-			<class name="TestCases.Telus" />
+			<class name="TestCases.THtest" />
 		</classes>
 	</test>
 
