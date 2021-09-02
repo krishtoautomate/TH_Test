@@ -1,0 +1,6 @@
+/target/
+/target/*
+/test-output/
+/test-output/*
+*.log
+*.txt
