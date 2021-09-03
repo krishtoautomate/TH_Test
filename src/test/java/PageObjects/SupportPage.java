@@ -39,6 +39,10 @@ public class SupportPage extends BasePageObjects<SupportPage> {
 
   By solutionSelector = By.xpath("//select[contains(@id, 'solution')]");
 
+  public WebElement get_solutionSelector() {
+    return getElement(solutionSelector, "Which solution can we help you with?' drop-down selector");
+  }
+
   By needHelpLabel =
       By.xpath("//span[@data-testid='selectLabel' and contains(text(),'need help')]");
 
@@ -47,6 +51,10 @@ public class SupportPage extends BasePageObjects<SupportPage> {
   }
 
   By needHelpSelector = By.xpath("//select[contains(@id, 'i-need-help-with-')]");
+
+  public WebElement get_needHelpSelector() {
+    return getElement(needHelpSelector, "I need help with *' drop-down selector");
+  }
 
   By needHelpErrorMessage = By.xpath("//*[@id='i-need-help-with-_error-message']/p");
 

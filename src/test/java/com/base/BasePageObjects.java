@@ -43,6 +43,7 @@ public class BasePageObjects<T> implements ITestBase {
     this.test = test;
     wait = new WebDriverWait(driver, 10);
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
     // driver.manage().window().maximize();
   }
 
@@ -50,6 +51,8 @@ public class BasePageObjects<T> implements ITestBase {
   public T getPage(String url) {
 
     driver.get(url);
+    new WebDriverWait(driver, 10).until(webDriver -> ((JavascriptExecutor) webDriver)
+        .executeScript("return document.readyState").equals("complete"));
     // driver.navigate().to(url);// incase default url is loaded
     return (T) this;
   }
@@ -58,7 +61,6 @@ public class BasePageObjects<T> implements ITestBase {
    * get Title of the Page
    */
   public String getPageTitle() {
-    sleep(2);// failing while page takes time to laod
     return driver.getTitle();
   }
 

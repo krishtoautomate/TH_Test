@@ -10,7 +10,7 @@
 		</classes>
 	</test>
 
-	<test name="Test2" enabled="true">
+	<test name="Test2" enabled="false">
 		<parameter name="browser" value="Android" />
 		<parameter name="udid" value="13201FDD4001SR" />
 		<classes>
@@ -20,7 +20,7 @@
 		</classes>
 	</test>
 
-	<test name="Test3" enabled="true">
+	<test name="Test3" enabled="false">
 		<parameter name="browser" value="iOS" />
 		<parameter name="udid" value="Auto" />
 		<classes>

@@ -1,11 +1,11 @@
 package TestCases;
 
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 import com.base.ITestBase;
 import com.base.TestBase;
 import PageObjects.SupportPage;
-import io.appium.java_client.ios.IOSDriver;
 
 public class THtest extends TestBase implements ITestBase {
 
@@ -58,9 +58,13 @@ public class THtest extends TestBase implements ITestBase {
   @Test(priority = 2)
   public void EmptyFormTest() {
 
-    boolean isiOS = driver instanceof IOSDriver;
-
     String p_url = "https://www.telus.com/en/health/contact/support/employers";
+
+    String p_solution = "Other solutions";
+    String p_firstName = "first";
+    String p_lastName = "user";
+    String p_email = p_firstName + p_lastName + "@gmail.com";
+    String p_provice = "Quebec";
 
     SupportPage supportPage = new SupportPage(driver, log, test);
 
@@ -68,8 +72,7 @@ public class THtest extends TestBase implements ITestBase {
     supportPage.getPage(p_url);
 
     // 2.0 - validate Pages
-    if (!isiOS)
-      supportPage.AssertContains(supportPage.getPageTitle(), "Technical support");
+    supportPage.AssertContains(supportPage.getPageTitle(), "Technical support");
 
     supportPage.AssertContains(supportPage.get_h1().getText(), "Technical support");
 
@@ -90,6 +93,26 @@ public class THtest extends TestBase implements ITestBase {
         "Enter email address");
 
     supportPage.AssertContains(supportPage.get_provinceErrorMessage().getText(), "Select province");
+
+    // 5.0 - select solution
+    new Select(supportPage.get_solutionSelector()).selectByVisibleText(p_solution);
+
+    // 6.0 - enter contact info
+    supportPage.get_firstNameTextField().sendKeys(p_firstName);
+
+    supportPage.get_lastNameTextField().sendKeys(p_lastName);
+
+    supportPage.get_emailTextField().sendKeys(p_email);
+
+    new Select(supportPage.get_provinceSelector()).selectByVisibleText(p_provice);
+
+    // 7.0 - submit button is clicked
+    supportPage.get_submit_btn().click();
+    supportPage.logmessage(Status.PASS, "'Submit' button is clicked");
+
+    // 8.0 - validate errors
+    supportPage.AssertContains(supportPage.get_descErrorMessage().getText(),
+        "Enter a detailed message");
 
   }
 }
