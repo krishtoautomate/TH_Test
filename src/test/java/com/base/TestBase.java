@@ -148,8 +148,9 @@ public class TestBase {
     if (driver != null) {
       tlDriverFactory.getDriver().quit();
       driver.quit();
+      test.log(Status.INFO, "Test Completed : " + context.getCurrentXmlTest().getName());
     }
-    test.log(Status.INFO, "Test Completed : " + context.getCurrentXmlTest().getName());
+
   }
 
   @AfterSuite(alwaysRun = true)
