@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="3" name="testSuite" parallel="tests">
+<suite thread-count="5" name="testSuite" parallel="tests">
 
 
 	<test name="Test1" enabled="true">
@@ -10,7 +10,7 @@
 		</classes>
 	</test>
 
-	<test name="Test2" enabled="false">
+	<test name="Test2" enabled="true">
 		<parameter name="browser" value="Android" />
 		<parameter name="udid" value="13201FDD4001SR" />
 		<classes>
@@ -20,7 +20,7 @@
 		</classes>
 	</test>
 
-	<test name="Test3" enabled="false">
+	<test name="Test3" enabled="true">
 		<parameter name="browser" value="iOS" />
 		<parameter name="udid" value="Auto" />
 		<classes>
